@@ -17,7 +17,7 @@ marquee{
 	font-size:30px
 }
 </style>
-</head> 
+</head>
 <body>
 	<div class="container">
 		<h1 align="center" style="color: dimgray">教务系统</h1>
@@ -25,7 +25,7 @@ marquee{
 		<form class="form-group" action="LoginServlet" method="post" style="width: 30%; margin: auto;">
 			<div class="input-group">
 				<span class="input-group-addon">帐号</span>
-				<input type="text" class="form-control " name="uname" autofocus>
+				<input type="text" class="form-control " name="uname">
 			</div>
 			<div style="color: gray">学生请输入学号；教师请输入职工号</div>
 			<br />

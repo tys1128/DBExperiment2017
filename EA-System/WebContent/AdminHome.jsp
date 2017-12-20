@@ -38,10 +38,10 @@ body {
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="UploadFile.jsp" target="left-frame">文本文件（.txt）</a>
+								<a href="iframe/admin/InformationEntry.jsp" target="left-frame">文本文件（.txt）</a>
 							</li>
 							<li>
-								<a href="#" target="left-frame">Excle文件</a>
+								<a href="iframe/admin/InformationEntry-excel.jsp" target="left-frame">Excel文件</a>
 							</li>
 
 						</ul>
@@ -52,10 +52,10 @@ body {
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="#" target="left-frame">教师</a>
+								<a href="iframe/admin/ViewTInfo.jsp" target="left-frame">教师</a>
 							</li>
 							<li>
-								<a href="#" target="left-frame">学生</a>
+								<a href="iframe/admin/ViewSInfo.jsp" target="left-frame">学生</a>
 							</li>
 
 						</ul>
@@ -66,13 +66,13 @@ body {
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="#" target="left-frame">对教师</a>
+								<a href="iframe/admin/Send-T.jsp" target="left-frame">对教师</a>
 							</li>
 							<li>
-								<a href="#" target="left-frame">对学生</a>
+								<a href="iframe/admin/Send-S.jsp" target="left-frame">对学生</a>
 							</li>
 							<li>
-								<a href="#" target="left-frame">对所有人</a>
+								<a href="iframe/admin/Send-all.jsp" target="left-frame">对所有人</a>
 							</li>
 						</ul>
 					</li>

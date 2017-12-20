@@ -36,7 +36,7 @@
 				<th>周五</th>
 				<th>周六</th>
 				<th>周日</th>
-			</tr> 
+			</tr>
 		</thead>
 		<tbody>
 			<tr>

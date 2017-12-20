@@ -5,8 +5,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>TeacherHome</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
 <script src="libs/bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
 <script src="libs/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <style type="text/css">
 html {
 	margin: 0;
@@ -55,7 +58,7 @@ body {
 	<marquee><font size=+3 color=red>Hello, World</font></marquee>
 	<div style="height: 100%">
 		<iframe id="fy1" name="fy1" src="iframe/Info.jsp" width="80%" height="90%"></iframe>
-		<iframe id="fy2" name="fy2" src="iframe/Info1.jsp" width="20%" height="90%" style="float:right"></iframe>
+		<iframe id="fy2" name="fy2" src="iframe/Info1.jsp" width="20%" height="90%" align="right"></iframe>
 	</div>
 
 </body>
