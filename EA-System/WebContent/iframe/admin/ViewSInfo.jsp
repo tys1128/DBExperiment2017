@@ -5,13 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查看或修改学生信息</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.css">
 <script src="libs/bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
 <script src="libs/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.js"></script>
-<script src="iframe/admin/JS/StudentIndex.js"></script>
-
 </head>
 <body>
  <div class="panel-body" style="padding-bottom:0px;">
@@ -47,7 +42,33 @@
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
             </button>
         </div>
-        <table id="table"></table>
+        <div >
+	<table class="table table-bordered">
+		<caption id="title">学生信息</caption>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>学号</th>
+				<th>出生日期</th>
+				<th>身份证号</th>				
+			</tr>
+		</thead>
+		<tbody>
+		<%
+		
+		%>
+			<tr>
+				<td>Tanmay</td>
+				<td>Bangalore</td>
+				<td>560001</td>
+				<td>560001</td>
+				<td>560001</td>
+			</tr>
+
+		</tbody>
+	</table>
+	</div>
     </div>
 
 </body>
