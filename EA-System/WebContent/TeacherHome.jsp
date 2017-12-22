@@ -28,7 +28,7 @@ body {
 					<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"> 教务系统</a>
+				<a class="navbar-brand" href="Login.jsp"> 教务系统</a>
 			</div>
 			
 			<div class="collapse navbar-collapse" id="example-navbar-collapse">
@@ -36,7 +36,7 @@ body {
 					<li class="button">
 						<a href="iframe/teacher/jskb.jsp" target="fy1"> 查看课表 </a>
 					</li>
-					<li class="button">
+					<li class="button" onclick=>
 						<a href="iframe/teacher/jskcxx.jsp" target="fy1"> 查看课程信息</a>
 					</li>
 					<li>
@@ -47,6 +47,9 @@ body {
 							<button type="submit" class="btn btn-default">提交</button>
 						</form>
 					</li>
+					<li>
+						<a>欢迎登陆,${cookie.name.value}</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -56,6 +59,9 @@ body {
 	<div style="height: 100%">
 		<iframe id="fy1" name="fy1" src="iframe/Info.jsp" width="80%" height="90%"></iframe>
 		<iframe id="fy2" name="fy2" src="iframe/Info1.jsp" width="20%" height="90%" align="right"></iframe>
+		<script>
+		
+		</script>
 	</div>
 
 </body>

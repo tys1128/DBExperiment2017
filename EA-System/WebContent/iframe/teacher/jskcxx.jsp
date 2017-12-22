@@ -11,14 +11,15 @@
 <script src="libs/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 <style type="text/css">
 #biaoge {
-	margin:200px;
-	padding:2px;
-	text-align:center;
+	margin: 200px;
+	padding: 2px;
+	text-align: center;
 }
+
 #title {
-	text-align:center;
-	font-size:30px;
-	font-family:verdana;
+	text-align: center;
+	font-size: 30px;
+	font-family: verdana;
 }
 </style>
 </head>
@@ -37,7 +38,8 @@
 			</thead>
 			<tbody>
 				<%
-					
+					int test = (int) request.getAttribute("test");
+					if (test == 1) {
 				%>
 				<tr>
 					<td>#</td>
@@ -46,7 +48,7 @@
 					<td>#</td>
 				<tr>
 					<%
-						
+						}
 					%>
 				
 			</tbody>

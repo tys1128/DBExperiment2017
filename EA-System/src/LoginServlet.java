@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,6 +43,7 @@ public class LoginServlet extends HttpServlet {
 		// 接收请求的内容
 		String id = request.getParameter("uname");
 		String password = request.getParameter("upassword");
+		
 		// 预处理(获取用户类型）
 		try {
 			if (id.subSequence(0, 2).equals("02")) {// 教师
@@ -50,11 +52,11 @@ public class LoginServlet extends HttpServlet {
 			} else if (id.subSequence(0, 2).equals("01")) {// 学生
 				path = "StudentHome.jsp";
 				// personDAO = new ;
-			} else if ("admin".equals(id)) {
+			} else if ("admin".equals(id)) {//管理员
 				path = "AdminHome.jsp";
 				request.getRequestDispatcher(path).forward(request, response);
 				return;
-			}else {
+			}else {//id或密码错误
 				path = "Login.jsp";
 				errors.add("错误的用户ID及密码！");
 				request.setAttribute("errors", errors);
@@ -67,6 +69,10 @@ public class LoginServlet extends HttpServlet {
 		
 		// 判断+重定向
 		if (personDAO != null && personDAO.canLogin(id, password)) {// 学生或老师验证
+			//request.setAttribute("id", id);//设置id
+			response.addCookie(new Cookie("id", id));//添加cookie
+			response.addCookie(new Cookie("name",personDAO.getName(id)));//添加cookie
+		
 			request.getRequestDispatcher(path).forward(request, response);
 		} else// 非法用户
 		{
@@ -76,6 +82,7 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher(path).forward(request, response);
 		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		personDAO.close();
 	}
 
 	/**
