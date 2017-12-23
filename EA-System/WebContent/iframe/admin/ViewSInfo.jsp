@@ -64,6 +64,8 @@
 				<td>560001</td>
 				<td>560001</td>
 				<td>560001</td>
+				<td><input type="button" value="添加" onclick="add()" class="btn btn-default">   
+                    <input type="button" value="删除" onclick="del(this)" class="btn btn-default"></td>
 			</tr>
 
 		</tbody>
@@ -73,3 +75,17 @@
 
 </body>
 </html>
+<script>  
+    function add() {  
+        var trObj = document.createElement("tr");  
+        trObj.id = new Date().getTime();  
+        trObj.innerHTML = "<td><input name='姓名'/></td><td><input name='性别'/><td><input name='学号'/><td><input name='出生日期'/><td><input name='身份证号'/></td><td><input type='button' value='添加' onclick='add()' class='btn btn-default'> <input type='button' value='删除' onclick='del(this)' class='btn btn-default'></td>";  
+        document.getElementById("tb").appendChild(trObj);  
+    }  
+  
+    function del(obj) {  
+        var trId = obj.parentNode.parentNode.id;  
+        var trObj = document.getElementById(trId);  
+        document.getElementById("tb").removeChild(trObj);  
+    }  
+</script>   

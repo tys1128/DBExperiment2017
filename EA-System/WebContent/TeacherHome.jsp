@@ -59,7 +59,7 @@ body {
 
 	<div style="height: 100% ">
 		<iframe id="fy1" name="fy1" src="iframe/Info.jsp" width="80%" height="90%"></iframe>
-		<iframe id="fy2" name="fy2" src="iframe/Info1.jsp" width="20%" height="90%" align="right"></iframe>
+		<iframe id="fy2" name="fy2" src="iframe/teacher/TInfo.jsp" width="20%" height="90%" align="right"></iframe>
 		<script>
 		
 		</script>
