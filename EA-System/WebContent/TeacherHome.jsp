@@ -49,7 +49,7 @@ body {
 						</form>
 					</li>
 					<li>
-						<a>欢迎登陆,${cookie.name.value}</a>
+						<a>欢迎登陆,${cookie.name.value}老师</a>
 					</li>
 				</ul>
 			</div>

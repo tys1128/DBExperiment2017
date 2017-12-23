@@ -70,7 +70,7 @@
 					<td><%=si.buliding%></td>
 					<td><%=si.classroom%></td>
 					<td><%=si.time%></td>
-				<tr>
+				</tr>
 					<%
 						}
 					%>

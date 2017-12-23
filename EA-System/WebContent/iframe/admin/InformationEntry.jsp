@@ -19,7 +19,7 @@ body {
 </head>
 <body>
 	<h1>文件上传</h1>
-	<form method="post" action="/TomcatTest/UploadServlet"
+	<form method="post" action="/EA-System/UploadServlet"
 		enctype="multipart/form-data">
 		选择一个文件: <input id="inputfile" type="file" name="InformationEntry" accept=".txt"/> <br />
 		<br /> <input type="submit" value="上传" class="btn btn-default" />

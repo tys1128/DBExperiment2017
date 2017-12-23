@@ -31,7 +31,7 @@ body {
 			<label for="name">名称</label> 
 			<input type="text" class="form-control" id="txt" placeholder="请输入名称" >
 			
-			<label for="name">内容</label>
+			<label for="content">内容</label>
 			<textarea class="form-control" rows="8" ></textarea>
 			
 			<input type="submit" value="发布" class="btn btn-default" onclick="test()" >
