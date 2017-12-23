@@ -1,5 +1,28 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.net.*"%>
+<%@ page import="entity.*"%>
+<%@ page import="dao.*"%>
+<%@ page import="dao.impl.*"%>
+<%
+	//存储教师的id
+	String id = "02030923";
+	//获取id
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		//遍历cookie
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("id")) {
+				id = cookie.getValue();
+			}
+		}
+	} else {
+		//out.println("<h2>没有发现 Cookie</h2>");
+	}
+	TeacherDAO tDAO = new TeacherDAO();
+	List<SectionInfo> sList = tDAO.getSectionInfo(id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,26 +53,26 @@
 			<thead>
 				<tr>
 					<th>课程名称</th>
-					<th>上课地点</th>
+					<th>上课教学楼</th>
+					<th>教室</th>
 					<th>上课时间</th>
-					<th>学生人数</th>
 
 				</tr>
 			</thead>
 			<tbody>
 				<%
-					int test = (int) request.getAttribute("test");
-					if (test == 1) {
+				//生成行
+					for(SectionInfo si:sList){
 				%>
 				<tr>
-					<td>#</td>
-					<td>#</td>
-					<td>#</td>
-					<td>#</td>
+					<td><%=si.courseName%></td>
+					<td><%=si.buliding%></td>
+					<td><%=si.classroom%></td>
+					<td><%=si.time%></td>
 				<tr>
-					<%
-						}
-					%>
+				<%
+					}
+				%>
 				
 			</tbody>
 		</table>

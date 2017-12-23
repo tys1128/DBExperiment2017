@@ -2,11 +2,10 @@ package dao.impl;
 
 import java.sql.*;
 import java.util.ArrayList;
-
-import com.sun.crypto.provider.RSACipher;
+import java.util.List;
 
 import dao.PersonDAO;
-import entity.Teacher;
+import entity.*;
 
 
 public class TeacherDAO implements PersonDAO{
@@ -22,7 +21,6 @@ public class TeacherDAO implements PersonDAO{
 		}
 
 	}
-
 	/**
 	* 判断老师登陆是否合法
 	* @param userid 登陆用户名，即老师ID
@@ -52,7 +50,9 @@ public class TeacherDAO implements PersonDAO{
 		}
 		return can;
 	}
-	
+	/**
+	 * 获得教师姓名
+	 */
 	@Override
 	public String getName(String id) {
 		try {
@@ -66,7 +66,44 @@ public class TeacherDAO implements PersonDAO{
 		}
 		return null;
 	}
-
+	/**
+	 * 获得教师的所有课程
+	 * @param id 教师id
+	 * @return 课程列表
+	 */
+	public List<SectionInfo> getSectionInfo(String id) {
+		List<SectionInfo> sList = new ArrayList<SectionInfo>();
+		String[] week = new String[] {"一","二","三","四","五","六","日"};
+		try {
+			Statement stmt = conn.createStatement();
+			//
+			String sql = "select title,building,room_num,time_slot\r\n" + 
+					"from course natural join section natural join teaches \r\n" + 
+					"where teaches.id='"+id+"'";
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				SectionInfo sInfo=new SectionInfo();
+				sInfo.courseName = rs.getString(1);
+				sInfo.buliding = rs.getString(2);
+				sInfo.classroom = rs.getString(3);
+				//处理时间
+				String str = rs.getString(4);
+				sInfo.time = "星期"+week[str.charAt(0)-'0']+" 第"+str.charAt(2)+"节";
+				
+				sList.add(sInfo);
+			}
+			rs.next();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sList;
+	}
+	
+	/**
+	 * 关闭DAO
+	 */
+	@Override
 	public void close() {
 		try {
 			conn.close();
@@ -75,7 +112,6 @@ public class TeacherDAO implements PersonDAO{
 		}
 		
 	}
-	
 	/**
 	* 这是读取或查询老师个人基本信息的功能函数说明 
 	* 无参
@@ -107,7 +143,7 @@ public class TeacherDAO implements PersonDAO{
 		}
 		return teachers;
 	}
-
+	
 	
 
 
