@@ -19,14 +19,14 @@ body {
 </head>
 <body>
 <h1 >发布消息</h1>
-	<form method="post" action="/TomcatTest/UploadServlet">
-
+	<form action = "/EA-System/NotifyServlet" method="post" >
 		<div class="form-group">
+		<input type="hidden" name="send-type" value="S">
 			<label for="name">名称</label> 
-			<input type="text" class="form-control" id="name" placeholder="请输入名称" >
+			<input type="text" class="form-control" name ="head" placeholder="请输入名称" >
 			
-			<label for="name">内容</label>
-			<textarea class="form-control" rows="8" ></textarea>
+			<label for="content">内容</label>
+			<textarea class="form-control" rows="8" name = "content" ></textarea>
 			
 			<input type="submit" value="发布" class="btn btn-default" >
 		</div>

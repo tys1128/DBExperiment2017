@@ -16,25 +16,20 @@ body {
 }
 
 </style>
-<script>
-    function test(){
-        var s = document.getElementById("txt");
-        location.href="iframe/teacher/TInfo.jsp?"+"txt="+encodeURI(s.value);
-    }
-</script>
+
 </head>
 <body>
 <h1 >发布消息</h1>
-	<form  >
-
+	<form action = "/EA-System/NotifyServlet" method="post" >
 		<div class="form-group">
+		<input type="hidden" name="send-type" value="T">
 			<label for="name">名称</label> 
-			<input type="text" class="form-control" id="txt" placeholder="请输入名称" >
+			<input type="text" class="form-control" name ="head" placeholder="请输入名称" >
 			
 			<label for="content">内容</label>
-			<textarea class="form-control" rows="8" ></textarea>
+			<textarea class="form-control" rows="8" name = "content" ></textarea>
 			
-			<input type="submit" value="发布" class="btn btn-default" onclick="test()" >
+			<input type="submit" value="发布" class="btn btn-default" >
 		</div>
 	</form>
 </body>
