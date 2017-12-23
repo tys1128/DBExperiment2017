@@ -7,41 +7,40 @@ import java.util.List;
 import dao.PersonDAO;
 import entity.*;
 
-
-public class TeacherDAO implements PersonDAO{
-	Connection conn ;
+public class TeacherDAO implements PersonDAO {
+	Connection conn;
 
 	public TeacherDAO() {
 		try {
 			DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@47.94.200.154:1521:ORCL", "teacher", "teacher");
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 	/**
-	* 判断老师登陆是否合法
-	* @param userid 登陆用户名，即老师ID
-	* @param password 登陆密码
-	* @return 是否合法
-	*/
+	 * 判断老师登陆是否合法
+	 * 
+	 * @param userid
+	 *            登陆用户名，即老师ID
+	 * @param password
+	 *            登陆密码
+	 * @return 是否合法
+	 */
 	@Override
 	public boolean canLogin(String userid, String password) {
 		boolean can = false;
 		try {
 			Statement stmt = conn.createStatement();
-			String sql = "select password from instructor where id='"+userid+"'";
+			String sql = "select password from instructor where id='" + userid + "'";
 			ResultSet rs = stmt.executeQuery(sql);
-			
+
 			rs.next();
 			String pw = rs.getString("password");
-			if(password.equals(pw)) {
-				can=true;
-			}
-			else {
-				can=false;
+			if (password.equals(pw)) {
+				can = true;
+			} else {
+				can = false;
 			}
 			rs.close();
 			stmt.close();
@@ -50,6 +49,7 @@ public class TeacherDAO implements PersonDAO{
 		}
 		return can;
 	}
+
 	/**
 	 * 获得教师姓名
 	 */
@@ -57,7 +57,7 @@ public class TeacherDAO implements PersonDAO{
 	public String getName(String id) {
 		try {
 			Statement stmt = conn.createStatement();
-			String sql = "select name from instructor where id='"+id+"'";
+			String sql = "select name from instructor where id='" + id + "'";
 			ResultSet rs = stmt.executeQuery(sql);
 			rs.next();
 			return rs.getString(1);
@@ -66,31 +66,34 @@ public class TeacherDAO implements PersonDAO{
 		}
 		return null;
 	}
+
 	/**
 	 * 获得教师的所有课程
+	 * 
 	 * @param id 教师id
 	 * @return 课程列表
 	 */
 	public List<SectionInfo> getSectionInfo(String id) {
 		List<SectionInfo> sList = new ArrayList<SectionInfo>();
-		String[] week = new String[] {"一","二","三","四","五","六","日"};
+		String[] week = new String[] { "一", "二", "三", "四", "五", "六", "日" };
 		try {
 			Statement stmt = conn.createStatement();
 			//
-			String sql = "select title,building,room_num,time_slot\r\n" + 
-					"from course natural join section natural join teaches \r\n" + 
-					"where teaches.id='"+id+"'";
-			
+			String sql = "select title,building,room_num,time_slot\r\n"
+					+ "from course natural join section natural join teaches \r\n" + "where teaches.id='" + id + "'";
+
 			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()) {
-				SectionInfo sInfo=new SectionInfo();
+			while (rs.next()) {
+				SectionInfo sInfo = new SectionInfo();
 				sInfo.courseName = rs.getString(1);
 				sInfo.buliding = rs.getString(2);
 				sInfo.classroom = rs.getString(3);
-				//处理时间
+				// 处理时间
 				String str = rs.getString(4);
-				sInfo.time = "星期"+week[str.charAt(0)-'0']+" 第"+str.charAt(2)+"节";
-				
+				sInfo.week = str.charAt(0) - '0';
+				sInfo.lession = str.charAt(2) - '0';
+				sInfo.time = "星期" + week[sInfo.week] + " 第" + sInfo.lession + "节";
+
 				sList.add(sInfo);
 			}
 			rs.next();
@@ -99,7 +102,7 @@ public class TeacherDAO implements PersonDAO{
 		}
 		return sList;
 	}
-	
+
 	/**
 	 * 关闭DAO
 	 */
@@ -110,13 +113,14 @@ public class TeacherDAO implements PersonDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
+
 	/**
-	* 这是读取或查询老师个人基本信息的功能函数说明 
-	* 无参
-	* @return 所要查询的老师的信息
-	*/
+	 * 这是读取或查询老师个人基本信息的功能函数说明 无参
+	 * 
+	 * @return 所要查询的老师的信息
+	 */
 	public ArrayList<Teacher> getTeacherManagement_Privilege() {
 		ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 		try {
@@ -143,9 +147,5 @@ public class TeacherDAO implements PersonDAO{
 		}
 		return teachers;
 	}
-	
-	
-
-
 
 }

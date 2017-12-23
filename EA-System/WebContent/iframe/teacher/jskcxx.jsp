@@ -1,13 +1,13 @@
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
 <%@ page import="java.net.*"%>
 <%@ page import="entity.*"%>
 <%@ page import="dao.*"%>
 <%@ page import="dao.impl.*"%>
 <%
 	//存储教师的id
-	String id = "02030923";
+	String id = null;
 	//获取id
 	Cookie[] cookies = request.getCookies();
 	if (cookies != null) {
@@ -27,7 +27,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>教师课程信息</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="libs/bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
@@ -61,8 +61,9 @@
 			</thead>
 			<tbody>
 				<%
-				//生成行
-					for(SectionInfo si:sList){
+					Collections.sort(sList);
+					//生成行
+					for (SectionInfo si : sList) {
 				%>
 				<tr>
 					<td><%=si.courseName%></td>
@@ -70,9 +71,9 @@
 					<td><%=si.classroom%></td>
 					<td><%=si.time%></td>
 				<tr>
-				<%
-					}
-				%>
+					<%
+						}
+					%>
 				
 			</tbody>
 		</table>
