@@ -16,11 +16,12 @@ html {
 body {
 	margin: 0;
 	height: 100%;
+	margin-top:50px
 }
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default " role="navigation">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"

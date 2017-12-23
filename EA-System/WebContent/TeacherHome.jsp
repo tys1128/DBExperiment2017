@@ -16,6 +16,7 @@ html {
 body {
 	margin: 0;
 	height: 100%;
+	margin-top:50px
 }
 </style>
 </head>
@@ -55,8 +56,8 @@ body {
 		</div>
 
 	</nav>
-	<marquee><font size=+3 color=red>Hello, World</font></marquee>
-	<div style="height: 100%">
+
+	<div style="height: 100% ">
 		<iframe id="fy1" name="fy1" src="iframe/Info.jsp" width="80%" height="90%"></iframe>
 		<iframe id="fy2" name="fy2" src="iframe/Info1.jsp" width="20%" height="90%" align="right"></iframe>
 		<script>
