@@ -96,7 +96,7 @@ public class UploadServlet extends HttpServlet {
             request.setAttribute("message","错误信息: " + ex.getMessage());
         }
         
-        // 跳转到 message.jsp
+        // 跳转到 UploadMessage.jsp
         getServletContext().getRequestDispatcher("/iframe/uploadMessage.jsp").forward(
                 request, response);
     }

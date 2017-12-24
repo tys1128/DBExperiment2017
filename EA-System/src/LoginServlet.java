@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.PersonDAO;
+import dao.impl.StudentDAO;
 import dao.impl.TeacherDAO;
 
 /**
@@ -51,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 				personDAO = new TeacherDAO();
 			} else if (id.subSequence(0, 2).equals("01")) {// 学生
 				path = "StudentHome.jsp";
-				// personDAO = new ;
+				personDAO = new StudentDAO();
 			} else if ("admin".equals(id)) {//管理员
 				path = "AdminHome.jsp";
 				request.getRequestDispatcher(path).forward(request, response);
@@ -82,7 +83,7 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher(path).forward(request, response);
 		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		personDAO.close();
+		//personDAO.close();
 	}
 
 	/**

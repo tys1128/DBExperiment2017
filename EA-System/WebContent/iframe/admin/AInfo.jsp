@@ -10,10 +10,27 @@
 <title>通知</title>
 </head>
 <body>
+	<h2>学生通知</h2>
 	<%
-		String Path = getServletContext().getRealPath("./") + File.separator + "notify"+File.separator+"t-notify.txt";
+		String Path = getServletContext().getRealPath("./") + File.separator + "notify"+File.separator+"s-notify.txt";
 		FileReader fr = new FileReader(Path);
 		Scanner sc = new Scanner(fr);
+	%>
+	<h3><%=sc.nextLine()%></h3>
+	<%
+		while (sc.hasNext()) {
+	%>
+	<p><%=sc.nextLine()%></p>
+	<%
+		}
+		sc.close();
+	%>	
+	<h2>教师通知</h2>
+	
+	<%
+		Path = getServletContext().getRealPath("./") + File.separator + "notify"+File.separator+"t-notify.txt";
+		fr = new FileReader(Path);
+		sc = new Scanner(fr);
 	%>
 	<h3><%=sc.nextLine()%></h3>
 	<%

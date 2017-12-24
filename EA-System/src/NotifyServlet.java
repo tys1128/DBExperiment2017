@@ -69,8 +69,7 @@ public class NotifyServlet extends HttpServlet {
 			out.write(str.toString());
 		}
 		out.close();
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Success!");
 	}
 
 	/**

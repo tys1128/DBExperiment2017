@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%
-		String Path = getServletContext().getRealPath("./") + File.separator + "notify"+File.separator+"t-notify.txt";
+		String Path = getServletContext().getRealPath("./") + File.separator + "notify"+File.separator+"s-notify.txt";
 		FileReader fr = new FileReader(Path);
 		Scanner sc = new Scanner(fr);
 	%>

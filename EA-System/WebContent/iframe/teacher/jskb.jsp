@@ -73,7 +73,7 @@
 						out.println("<tr>");
 						for (int w = 0; w < 7; w++) {//列-第几周
 							if (sche[l][w]=="") {//空单元格
-								out.println("<td><br/></td>");
+								out.println("<td>"+""+"</td>");
 							} else {
 								out.println("<td>"+sche[l][w]+"</td>");
 							}

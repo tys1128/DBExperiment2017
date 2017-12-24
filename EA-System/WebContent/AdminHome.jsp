@@ -92,7 +92,7 @@ body {
 	</nav>
 	<div style="height: 100%">
 		<iframe id="left-frame" name="left-frame"src="iframe/Info.jsp" width="80%" height="100%"></iframe>
-		<iframe id="right-frame" name="right-frame"src="iframe/Info1.jsp" width="20%" height="100%" align="right"></iframe>
+		<iframe id="right-frame" name="right-frame"src="iframe/admin/AInfo.jsp" width="20%" height="100%" align="right"></iframe>
 	</div>
 
 </body>
