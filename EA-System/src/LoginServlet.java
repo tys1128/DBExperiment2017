@@ -49,13 +49,13 @@ public class LoginServlet extends HttpServlet {
 		// 预处理(获取用户类型）
 		try {
 			if (id.subSequence(0, 2).equals("02")) {// 教师
-				path = "iframe/teacher/TeacherHome.jsp";
+				path = "/TeacherHome.jsp";
 				personDAO = new TeacherDAO();
 			} else if (id.subSequence(0, 2).equals("01")) {// 学生
-				path = "iframe/student/StudentHome.jsp";
+				path = "/StudentHome.jsp";
 				personDAO = new StudentDAO();
 			} else if ("admin".equals(id)) {//管理员
-				path = "iframe/admin/AdminHome.jsp";
+				path = "/AdminHome.jsp";
 				request.getRequestDispatcher(path).forward(request, response);
 				return;
 			}else {//id或密码错误
@@ -75,8 +75,13 @@ public class LoginServlet extends HttpServlet {
 			response.addCookie(new Cookie("id", id));//添加cookie
 			response.addCookie(new Cookie("name",personDAO.getName(id)));//添加cookie
 
-			request.getRequestDispatcher(path).forward(request, response);
-			//response.sendRedirect(request.getRequestURI()+ + path);
+			//request.getRequestDispatcher(path).forward(request, response);
+			String requestUrl = request.getScheme() //当前链接使用的协议
+				    +"://" + request.getServerName()//服务器地址 
+				    + ":" + request.getServerPort() //端口号 
+				    + request.getContextPath() //应用名称，如果应用名称为
+				    + path;
+			response.sendRedirect(requestUrl);
 		} else// 非法用户
 		{
 			path = "Login.jsp";
