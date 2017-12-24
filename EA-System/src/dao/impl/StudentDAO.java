@@ -9,6 +9,7 @@ import java.util.List;
 
 import dao.PersonDAO;
 import entity.SectionInfo;
+import entity.StuInfo;
 
 public class StudentDAO implements PersonDAO {
 	Connection conn;
@@ -22,10 +23,10 @@ public class StudentDAO implements PersonDAO {
 		}
 	}
 	/**
-	 * 判断老师登陆是否合法
+	 * 判断登陆是否合法
 	 * 
 	 * @param userid
-	 *            登陆用户名，即老师ID
+	 *            登陆用户名，即ID
 	 * @param password
 	 *            登陆密码
 	 * @return 是否合法
@@ -54,7 +55,7 @@ public class StudentDAO implements PersonDAO {
 	}
 
 	/**
-	 * 获得教师姓名
+	 * 获得学生姓名
 	 */
 	@Override
 	public String getName(String id) {
@@ -71,23 +72,23 @@ public class StudentDAO implements PersonDAO {
 	}
 
 	/**
-	 * 获得教师的所有课程
+	 * 获得学生的所有课程
 	 * 
-	 * @param id 教师id
+	 * @param id 学生id
 	 * @return 课程列表
 	 */
-	public List<SectionInfo> getSectionInfo(String id) {
-		List<SectionInfo> sList = new ArrayList<SectionInfo>();
+	public List<StuInfo> getStuInfo(String id) {
+		List<StuInfo> sList = new ArrayList<StuInfo>();
 		String[] week = new String[] { "一", "二", "三", "四", "五", "六", "日" };
 		try {
 			Statement stmt = conn.createStatement();
 			//
-			String sql = "select title,building,room_num,time_slot\r\n"
-					+ "from course natural join section natural join teaches \r\n" + "where teaches.id='" + id + "'";
+			String sql = "select title,building,room_num,time_slot,grade\r\n"
+					+ "from course natural join section natural join takes \r\n" + "where takes.id='" + id + "'";
 
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				SectionInfo sInfo = new SectionInfo();
+				StuInfo sInfo = new StuInfo();
 				sInfo.courseName = rs.getString(1);
 				sInfo.buliding = rs.getString(2);
 				sInfo.classroom = rs.getString(3);
@@ -96,6 +97,7 @@ public class StudentDAO implements PersonDAO {
 				sInfo.week = str.charAt(0) - '0';
 				sInfo.lession = str.charAt(2) - '0';
 				sInfo.time = "星期" + week[sInfo.week] + " 第" + sInfo.lession + "节";
+				sInfo.grade = rs.getString(5);
 
 				sList.add(sInfo);
 			}
@@ -104,6 +106,7 @@ public class StudentDAO implements PersonDAO {
 			e.printStackTrace();
 		}
 		return sList;
+
 	}
 
 	/**
