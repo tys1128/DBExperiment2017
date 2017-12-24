@@ -40,6 +40,9 @@ body {
 						target="left-frame">学生个人课表</a></li>
 					<li class="button"><a href="iframe/student/xscj.jsp"
 						target="left-frame">学生成绩</a></li>
+											<li>
+						<a>欢迎登陆,${cookie.name.value}同学</a>
+					</li>
 			</ul>
 			</div>
 		</div>

@@ -12,13 +12,18 @@ Oracle课程设计
 sqlplus远程连接teacher 
     teacher/teacher@//47.94.200.154:1521/orcl
 
-教师查询测试
+教师课程查询
     select title,building,room_num,time_slot
     from course natural join section natural join teaches 
     where teaches.id='02030923';
 
 
-学生查询测试
-    select title,grade
+学生课程查询
+    select select title,grade,time_slot
     from course natural join section natural join takes 
     where takes.id='01170512';
+
+
+管理员查询教师
+    select *
+    from instructor;

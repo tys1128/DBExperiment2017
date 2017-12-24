@@ -8,10 +8,11 @@ package entity;
  * @version 1.0
  */
 public class Teacher {
-	private String name;
-	private String id;
-	private String department_Name;
-	private int salary;
+	public String name;
+	public String id;
+	public String sex;
+	public String department_Name;
+	public float  salary;
 
 	public Teacher() {
 		
@@ -46,7 +47,7 @@ public class Teacher {
 		return department_Name;
 	}
 
-	public int getSalary() {
+	public float getSalary() {
 		return salary;
 	}
 }

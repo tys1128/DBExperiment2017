@@ -48,13 +48,13 @@ public class LoginServlet extends HttpServlet {
 		// 预处理(获取用户类型）
 		try {
 			if (id.subSequence(0, 2).equals("02")) {// 教师
-				path = "TeacherHome.jsp";
+				path = "iframe/teacher/TeacherHome.jsp";
 				personDAO = new TeacherDAO();
 			} else if (id.subSequence(0, 2).equals("01")) {// 学生
-				path = "StudentHome.jsp";
+				path = "iframe/student/StudentHome.jsp";
 				personDAO = new StudentDAO();
 			} else if ("admin".equals(id)) {//管理员
-				path = "AdminHome.jsp";
+				path = "iframe/admin/AdminHome.jsp";
 				request.getRequestDispatcher(path).forward(request, response);
 				return;
 			}else {//id或密码错误
