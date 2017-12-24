@@ -18,7 +18,7 @@ body {
 </style>
 </head>
 <body>
-<h1 >发布消息</h1>
+<h1 >发布消息-学生</h1>
 	<form action = "/EA-System/NotifyServlet" method="post" >
 		<div class="form-group">
 		<input type="hidden" name="send-type" value="S">

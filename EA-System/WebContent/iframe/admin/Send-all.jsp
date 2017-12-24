@@ -19,7 +19,7 @@ body {
 </style>
 </head>
 <body>
-	<h1 >发布消息</h1>
+	<h1>发布消息-教师+学生</h1>
 	<form method="post" action="/EA-System/NotifyServlet">
 		<div class="form-group">
 		<input type="hidden" name="send-type" value="all">

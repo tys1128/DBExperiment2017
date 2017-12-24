@@ -1,4 +1,5 @@
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,8 +74,9 @@ public class LoginServlet extends HttpServlet {
 			//request.setAttribute("id", id);//设置id
 			response.addCookie(new Cookie("id", id));//添加cookie
 			response.addCookie(new Cookie("name",personDAO.getName(id)));//添加cookie
-		
+
 			request.getRequestDispatcher(path).forward(request, response);
+			//response.sendRedirect(request.getRequestURI()+ + path);
 		} else// 非法用户
 		{
 			path = "Login.jsp";
